@@ -1,3 +1,26 @@
+# Abstract
+The aim is to come up with a more convenient way of easily supporting
+structured data for external programs, than having to define aliases such as
+```nu
+alias "ip addr" = (ip --json addr | from json)
+```
+Note, this also doesn't work very well, as it doesn't put the rest of the
+arguments in the right places, e.g. `ip addr show dev eth0` doesn't work.
+Commands can work around this, but at the potential cost of tab completion.
+```nu
+def "nix search" [...args] { ^nix search --json $args | from json }
+```
+Also note that not every program takes the `--json` argument in the same place,
+or even in the same way, e.g. `systemctl -o json`
+
+The primary goal is user friendliness, in particular for interactive use (for
+scripting use a bit of verbosity is more acceptable, especially for
+portability). To facilitate this, secondary goals are ease of implementation
+for commands first (as there are more of them) and shells second (but hopefully
+both). Also, having a single way to achieve this would be grand (a tiny library
+per OS is acceptable, but I want to avoid having multiple standards or
+something too heavy).
+
 # Structured Shell IO
 Traditional command-line tends to be line-oriented, but there are some shells
 supporting structured data, such as:
