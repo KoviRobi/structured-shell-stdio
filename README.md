@@ -58,4 +58,13 @@ could also be formatted over multiple lines. The latter is probably less
 important for shells that already support structured data.
 
 # Alternatives
-dbus
+Message buses such as `dbus` can also communicate with programs. I think the
+closest a shell has to good support for `dbus` is [xonsh](https://xon.sh/) when
+used with [pydbus](https://pypi.org/project/pydbus/). This might work better
+for things where you need to query an existing program, such as `systemd`,
+rather than when you want the output of the program you started to be more than
+just text. This would also need to support the message bus for each
+environment, the JSON approach might be lower upfront cost.
+
+But that is not to say that shells already supporting structured data might not
+separately benefit from integration into message-buses also.
