@@ -91,3 +91,11 @@ environment, the JSON approach might be lower upfront cost.
 
 But that is not to say that shells already supporting structured data might not
 separately benefit from integration into message-buses also.
+
+# Traditional shells
+It might be possible to write helper programs for more traditional shells (e.g.
+bash), especially if the `JSON_STDOUT` solution works. In this case we could
+have a command, say `with-jq <command> <filter>` which could act like
+`JSON_STDOUT=... <command> | jq <filter>`. Though not sure if this improves the
+UX for bash at all, just putting `| jq <filter>` at the end isn't too much
+trouble, though that alone would not tell the external program to output JSON.
