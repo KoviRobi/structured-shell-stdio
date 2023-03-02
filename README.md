@@ -6,12 +6,16 @@ supporting structured data, such as:
 - [nushell](https://nushell.sh/)
 - [Xonsh](https://xon.sh/)
 
+See https://github.com/KoviRobi/structured-shell-stdio/issues/1 for cross-references.
+
 On the flipside some programs support returning structured data (often as
 JSON). For example:
 - [iproute2](https://wiki.linuxfoundation.org/networking/iproute2), e.g.
   `ip -j addr`
 - [systemd](https://systemd.io/)
 - [nix](https://nixos.org/), e.g. `nix search --json`
+
+See https://github.com/KoviRobi/structured-shell-stdio/issues/2 for cross-references.
 
 But it is a pain to specify an alias for each program to send JSON data. A more
 automated way would be handy.
@@ -41,8 +45,8 @@ might be the error log output (say world readable) whereas the `JSON_STDOUT`
 might contain privileged data.
 
 # OS Compatibility
-✅ Linux/*BSD/macOS
-❓ Windows
+- ✅ Linux/*BSD/macOS
+- ❓ Windows
 
 # Streamed data
 JSON is unfortunate in that the whole data needs to be output before it can be
